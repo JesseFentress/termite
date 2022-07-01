@@ -1,4 +1,5 @@
 import React from 'react';
+import "./styles/button.css";
 
 const STYLES = [
     "btn--primary--solid",
@@ -21,11 +22,11 @@ export const Button = ({
     buttonStyle,
     buttonSize
 }) => {
-    const setButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0];
-    const setButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
+    //const setButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0];
+    //const setButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
     return (
         <button 
-            className={`btn ${setButtonStyle} ${setButtonSize}`}
+            className={`btn ${buttonStyle} ${buttonSize}`}
             onClick={onClick} 
             type={type}
         >

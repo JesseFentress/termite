@@ -29,7 +29,7 @@ router.get("/retrieve/paginated", async (req, res) => {
         const {
             ticketLimit,
             pageNumber
-        } = req.body;
+        } = req.query;
         const paginatedTickets = await pool.query(
             "SELECT * FROM ticket ORDER BY id LIMIT $1 OFFSET $2",
             [ticketLimit, pageNumber]

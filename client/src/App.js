@@ -1,6 +1,9 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useAuth } from './auth/AuthContext';
+import HomePage from './views/home/HomePage';
+import LoginPage from './views/login/LoginPage';
+import SignupPage from './views/signup/SignupPage';
 
 function App() {
   const { user } = useAuth();
@@ -8,16 +11,16 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          <div>Home</div>
+          <HomePage/>
         </Route>
         <Route exact path="/dashboard">
           <div>Dashboard</div>
         </Route>
         <Route exact path="/login">
-          <div>login</div>
+          <LoginPage/>
         </Route>
         <Route exact path="/signup">
-          <div>Signup</div>
+          <SignupPage/>
         </Route>
       </Switch>
     </Router>

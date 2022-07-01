@@ -16,7 +16,7 @@ const verifyToken = (token) => {
 };
 
 const authenticateRequest = (req, res, next) => {
-    const { token } = req.body;
+    const { token } = req.query;
     if (verifyToken(token) !== null) {
         next();
     }

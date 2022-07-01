@@ -1,20 +1,71 @@
 :root {
-    --termite: #95D0D5;
-    --termite-dark: #8EC1C6;
+    --termite: #53c68c;
+    --termite-dark: #39ac73;
+}
+
+/* Button Styling */
+
+.btn {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    color: white;
 }
 
 .btn--primary--solid {
-
+    background-color: var(--termite);
 }
 
 .btn--primary--outline {
 
 }
 
+.btn:hover {
+    transform: translateY(-5px);
+    background-color: white;
+    border-color: var(---termite);
+    color: var(--termite);
+}
+
 .btn--form {
+    width: -webkit-fill-available;
+}
+
+.btn--form:hover {
+    transform: none;
+    background-color: var(--termite-dark);
+    border-color: var(--termite-dark);
+    color: white;
+}
+
+
+.btn--table {
 
 }
 
-.btn--table {
-    
+
+/* Button Sizing */
+
+.sm {
+    border-radius: 15px;
+    padding: 6px 18px;
+    font-size: 14px;
+}
+
+.md {
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 16px;
+}
+
+.lg {
+    border-radius: 25px;
+    padding: 12px 24px;
+    font-size: 20px;
+}
+
+.xlg {
+    border-radius: 30px;
+    padding: 18px 30px;
+    font-size: 24px;
+    width: -webkit-fill-available;
 }
