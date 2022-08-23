@@ -9,10 +9,10 @@ const HomePage = ({
     handleSignupNavigate,
     handleDashboardNavigate
 }) => {
-  const { user } = useAuth();
+  const { token } = useAuth();
   return (
         <div className="container-home">
-            {user ? 
+            {token ? 
                 <div className="btn-container-home">
                     <div className="row pt-4 pb-4">
                     <Link to="/dashboard">

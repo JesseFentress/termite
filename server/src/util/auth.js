@@ -16,8 +16,10 @@ const verifyToken = (token) => {
 };
 
 const authenticateRequest = (req, res, next) => {
-    const { token } = req.query;
+    let { token } = req.query;
+    token ?? (token = req.body.token);
     if (verifyToken(token) !== null) {
+        req.query.id = jwt.decode(token).id;
         next();
     }
     else {

@@ -1,0 +1,34 @@
+.panel {
+    margin: 5%;
+    width: 85%;
+    height: 300px;
+}
+
+.panel-wide {
+    margin: 2.5%;
+    width: 92%;
+}
+
+.panel-tall {
+    width: 85%;
+    height: 90%;
+    height: 700px;
+}
+
+.close-btn {
+    border: none;
+    background-color: transparent;
+    color: lightgray;
+}
+
+.close-btn:hover {
+    color: var(--termite-dark);
+}
+
+.panel h4 {
+    font-weight: 800;
+}
+
+
+
+

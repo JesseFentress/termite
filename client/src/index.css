@@ -1,12 +1,17 @@
+:root {
+  --termite: #53c68c;
+  --termite-dark: #39ac73;
+}
 
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /*font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif;*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'PT Sans Narrow', sans-serif;
 }
 
 code {
@@ -16,4 +21,82 @@ code {
 
 a {
   text-decoration: none;
+}
+.center {
+  text-align: -webkit-center;
+}
+
+ul {
+  list-style: none;
+}
+
+.nav li:hover {
+  background-color: var(--termite-dark);
+}
+
+.bg-termite {
+  background-color: var(--termite);
+}
+
+.bg-termite-dark {
+  background-color: var(--termite-dark);
+}
+
+.bg-termite-darker {
+  background-color: #26734d;
+}
+
+.bg-urgent {
+  background-color: #e60000;
+}
+
+.bg-high {
+  background-color: #ff751a;
+}
+
+.bg-medium {
+  background-color: #efef1f;
+}
+
+.bg-low {
+  background-color: #2eb82e;
+}
+
+.bg-ow {
+  background-color: #f5f5f5;
+}
+
+.c-green {
+  color: green;
+  font-weight: 500;
+}
+
+.c-blue {
+  color: blue;
+  font-weight: 500;
+}
+
+.c-red {
+  color: red;
+  font-weight: 500;
+}
+
+.h-200 {
+  max-height: 200px;
+  min-height: 200px;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.title-border-bottom {
+  width: fit-content;
+  border-bottom: 2px solid var(--termite);
+}
+
+textarea {
+  resize: none;
 }

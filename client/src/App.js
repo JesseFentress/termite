@@ -4,9 +4,24 @@ import { useAuth } from './auth/AuthContext';
 import HomePage from './views/home/HomePage';
 import LoginPage from './views/login/LoginPage';
 import SignupPage from './views/signup/SignupPage';
+import DashboardPage from './views/dashboard/DashboardPage';
+import { ProtectedLoggedInRoute, ProtectedLoggedOutRoute } from './components/ProtectedRoute';
+import { getUser } from './util/userHandler';
+import { useEffect } from 'react';
+import { ProjectPage } from './views/project/ProjectPage';
 
 function App() {
-  const { user } = useAuth();
+  const { token, user, setUser } = useAuth();
+
+  useEffect(() => {
+    const myUser = getUser({token: token});
+    myUser.then(value => {
+        setUser(value);
+      }).catch(err => {
+        console.log(err)
+      });
+}, [])
+
   return (
     <Router>
       <Switch>
@@ -14,12 +29,18 @@ function App() {
           <HomePage/>
         </Route>
         <Route exact path="/dashboard">
-          <div>Dashboard</div>
+          <ProtectedLoggedOutRoute route={<DashboardPage/>} alternateRoute="/login"/>
         </Route>
         <Route exact path="/login">
-          <LoginPage/>
+          <ProtectedLoggedInRoute route={<LoginPage/>} alternateRoute="/dashboard"/>
         </Route>
         <Route exact path="/signup">
+          <ProtectedLoggedInRoute route={<SignupPage/>} alternateRoute="/dashboard"/>
+        </Route>
+        <Route exact path="/project/:id">
+          <ProjectPage token={token}/>
+        </Route>
+        <Route exact path="/ticket/:id">
           <SignupPage/>
         </Route>
       </Switch>

@@ -9,7 +9,8 @@ export const Form = ({
     link,
     linkMessage,
     formik,
-    errorMessage
+    errorMessage,
+    onClick
 }) => {
     return (
         <div className="container-login">
@@ -47,6 +48,7 @@ export const Form = ({
                             type="submit"
                             buttonStyle="btn--primary--solid btn--form"
                             buttonSize="md"
+                            onClick={onClick}
                         >{formType}</Button>
                     </div>
                 </form>

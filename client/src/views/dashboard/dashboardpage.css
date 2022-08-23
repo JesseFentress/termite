@@ -1,0 +1,50 @@
+.overlay {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+}
+
+.title {
+    height: 150px;
+    width: fit-content;
+    padding-top: 100px;
+}
+
+.nav {
+    height: inherit;
+}
+
+.user p {
+    padding-left: 5%;
+    color: white;
+}
+
+#username {
+    font-size: x-large;
+}
+
+#role {
+    font-size: small;
+    font-weight: 600;
+}
+
+.bar {
+    place-self: center;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%
+}
+
+.overflow-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+  
+

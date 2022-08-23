@@ -2,7 +2,27 @@ const express = require("express");
 const pool = require("../config/db");
 const router = express.Router();
 const bcrypt = require("bcrypt");
-const { generateToken } = require("../util/auth");
+const { generateToken, authenticateRequest } = require("../util/auth");
+
+router.get("/retrieve", authenticateRequest ,async (req, res) => {
+    try {
+        const { id } = req.query;
+        const user = await pool.query(
+            "SELECT * FROM users WHERE id=$1",
+            [id]
+        );
+        if (user.rows.length > 0) {
+            res.json({
+                firstName: user.rows[0].first_name, 
+                lastName: user.rows[0].last_name, 
+                role: user.rows[0].role,
+                id: user.rows[0].id
+        });
+        }
+    } catch (err) {
+        console.log(err.message);
+    }
+});
 
 router.post("/signup/create", async (req, res) => {
     try {
@@ -42,7 +62,6 @@ router.post("/login/validate", async (req, res) => {
             email,
             password
         } = req.body;
-        console.log(req.body);
         const validUser = await pool.query(
             "SELECT * FROM users WHERE email=$1",
             [email]

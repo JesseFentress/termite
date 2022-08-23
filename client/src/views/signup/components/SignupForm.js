@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import { useFormik } from "formik";
+import { useHistory } from 'react-router-dom';
 import { Form } from '../../../components/Form';
-import { signupUser } from '../../../auth/AuthContext';
+import { signupUser } from '../../../util/userHandler';
 
 export const SignupForm = () => {
     const [ errorMessage, setErrorMessage ] = useState(null);
+    let history = useHistory();
 
     const handleSubmit = async (values) => {
         const message = await signupUser(values);
         setErrorMessage(message);
+        if (message === null) {
+            history.push("/dashboard");
+        }
     }
 
     const formik = useFormik({ 
