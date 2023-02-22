@@ -27,7 +27,7 @@ export const Overlay = ({
 
     const navOptions = [
         {name: "Dashboard", route: "/dashboard", icon: <ion-icon name="home-outline"></ion-icon>, onClick: null},
-        {name: "Profile", route: "/profile", icon: <ion-icon name="person-outline"></ion-icon>, onClick: null},
+        {name: "Profile", route: "/profile/" + user.id, icon: <ion-icon name="person-outline"></ion-icon>, onClick: null},
         {name: "Projects", route: "/projects", icon:  <ion-icon name="code-slash-outline"></ion-icon>, onClick: null},
         {name: "Tickets", route: "/tickets", icon: <ion-icon name="ticket-outline"></ion-icon>, onClick: null},
         {name: "Team", route: "/team", icon:  <ion-icon name="people-outline"></ion-icon>, onClick: null},
@@ -48,9 +48,9 @@ export const Overlay = ({
                 </div>
                 <div className="col-10">
                     <HeaderPanel 
-                    title={title}
-                    onNavOpen={handleNavPanel}
-                    >{icons[1]}</HeaderPanel>
+                        title={title}
+                        onNavOpen={handleNavPanel}
+                        >{icons[1]}</HeaderPanel>
                     {children}
                 </div>
             </div>

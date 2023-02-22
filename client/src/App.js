@@ -9,9 +9,10 @@ import { ProtectedLoggedInRoute, ProtectedLoggedOutRoute } from './components/Pr
 import { getUser } from './util/userHandler';
 import { useEffect } from 'react';
 import { ProjectPage } from './views/project/ProjectPage';
+import { ProfilePage } from './views/profile/ProfilePage';
 
 function App() {
-  const { token, user, setUser } = useAuth();
+  const { token, setUser } = useAuth();
 
   useEffect(() => {
     const myUser = getUser({token: token});
@@ -20,7 +21,7 @@ function App() {
       }).catch(err => {
         console.log(err)
       });
-}, [])
+  }, [])
 
   return (
     <Router>
@@ -42,6 +43,9 @@ function App() {
         </Route>
         <Route exact path="/ticket/:id">
           <SignupPage/>
+        </Route>
+        <Route exact path="/profile/:id">
+          <ProfilePage/>
         </Route>
       </Switch>
     </Router>

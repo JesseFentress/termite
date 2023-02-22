@@ -12,7 +12,7 @@ export const SignupForm = () => {
         const message = await signupUser(values);
         setErrorMessage(message);
         if (message === null) {
-            history.push("/dashboard");
+            history.push("/login");
         }
     }
 

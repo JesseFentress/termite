@@ -88,4 +88,22 @@ router.get("/retrieve-unassigned", async (req, res) => {
     }
 });
 
+router.post("/assign-members", async (req, res) => {
+    try {
+        const { 
+            projectID,
+            newTeamMemberIDs
+        } = req.body;
+        for (id of newTeamMemberIDs) {
+            const assignDevs =  await pool.query(
+                "INSERT INTO project_members (project_id, member_id) VALUES ($1, $2)",
+                [projectID, id]
+            );
+        }
+        res.json({message: "Team Members Added Successfully!"});
+    } catch (err) {
+        console.log(err.message);
+    }
+});
+
 module.exports = router;

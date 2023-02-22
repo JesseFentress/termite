@@ -32,6 +32,14 @@
   transform: scale(.85) translateY(-0.5rem) translateX(0.15rem);
 }
 
+.newTeamList {
+  padding: 0;
+  border: 1px solid gray;
+  width: 55%;
+  overflow: auto;
+  height: 15vh;
+}
+
 * {
   padding:0;
   margin:0
@@ -94,3 +102,17 @@
     box-shadow: inset 0px 0px 0px 100px var(--termite)
   }
 }
+
+.ticket_desc {
+  flex: auto;
+  padding: .5rem;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.successfulTicket {
+  font-size: xx-large;
+}
+

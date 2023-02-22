@@ -9,7 +9,7 @@ export const Dashboard = ({
     token
 }) => {
     return (
-        <div className="row">
+        <div onClick={(e) => console.log(e)} className="row">
             <div className="col-12 stats">
                 <div className="row">
                     <div className="col-4 center">

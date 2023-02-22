@@ -10,10 +10,6 @@
     background-color: var(--termite);
 }
 
-.btn--primary--outline {
-
-}
-
 .btn:hover {
     transform: translateY(-5px);
     background-color: white;

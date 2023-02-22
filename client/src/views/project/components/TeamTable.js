@@ -1,5 +1,3 @@
-import { Panel } from "../../../components/Panel";
-
 export const TeamTable  = ({
     team
 }) => {
@@ -13,7 +11,7 @@ export const TeamTable  = ({
                 </tr>
             </thead>
                 <tbody>
-                { team ? team.map((member, index) => (
+                { team.length > 0 ? team.map((member, index) => (
                     <tr className="w-100 mt-2" role="button" key={index}>
                             <td className="col-6"><div className="overflow-hidden overflow-ellipsis">{member.first_name + " " + member.last_name}</div></td>
                             <td className="col-6"><div className="overflow-hidden overflow-ellipsis">{member.email}</div></td>

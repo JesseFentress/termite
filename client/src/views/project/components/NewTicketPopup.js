@@ -21,14 +21,14 @@ export const NewTicketPopup = ({
 
     return (
         <div className="popup-box">
-            { newTicketMessage ?
+            { !newTicketMessage ?
                 <Panel
                     panelSize="box"
                     onClick={handlePopupClose}
                     panelClose={true}
                 >
                     <div>
-                        <h4>{newTicketMessage}</h4>
+                        <h4 className="successfulTicket">Ticket Successfully Created</h4>
                         <div className="wrapper"> 
                             <svg className="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"> 
                                 <circle className="checkmark__circle" cx="26" cy="26" r="25" fill="none"/> 

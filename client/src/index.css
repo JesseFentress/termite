@@ -1,6 +1,11 @@
 :root {
   --termite: #53c68c;
   --termite-dark: #39ac73;
+  --termite-light: #8cd9b3;
+  --low: #2eb82e;
+  --medium: #efef1f;
+  --high: #ff751a;
+  --urgent: #e60000;
 }
 
 
@@ -34,6 +39,10 @@ ul {
   background-color: var(--termite-dark);
 }
 
+.bg-lightgray {
+  background-color: #eee;
+}
+
 .bg-termite {
   background-color: var(--termite);
 }
@@ -46,20 +55,24 @@ ul {
   background-color: #26734d;
 }
 
+.bg-termite-light {
+  background-color: #8cd9b3;
+}
+
 .bg-urgent {
-  background-color: #e60000;
+  background-color: var(--urgent);
 }
 
 .bg-high {
-  background-color: #ff751a;
+  background-color: var(--high);
 }
 
 .bg-medium {
-  background-color: #efef1f;
+  background-color: var(--medium);
 }
 
 .bg-low {
-  background-color: #2eb82e;
+  background-color: var(--low);
 }
 
 .bg-ow {
@@ -79,6 +92,22 @@ ul {
 .c-red {
   color: red;
   font-weight: 500;
+}
+
+.c-low {
+  color: var(--low);
+}
+
+.c-medium {
+  color: var(--medium);
+}
+
+.c-high {
+  color: var(--high);
+}
+
+.c-urgent {
+  color: var(--urgent);
 }
 
 .h-200 {

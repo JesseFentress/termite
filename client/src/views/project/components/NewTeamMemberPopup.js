@@ -5,12 +5,14 @@ import { NewTeamMemberForm } from "./NewTeamMemberForm";
 
 export const NewTeamMemberPopup = ({
     onPopupClose,
+    onNewTeamMemberSubmit,
     token
 }) => {
     const [ newTeamMemberMessage, setTeamMemberMessage ] = useState();
 
     const handleNewTeamMemberSubmit = (message) => {
         setTeamMemberMessage(message)
+        onNewTeamMemberSubmit();
     };
 
     const handlePopupClose = () => {

@@ -26,7 +26,7 @@ export const NavigationPanel = ({
                                     >
                                         <div className="d-flex">
                                             {link.icon}
-                                            <p>{link.name}</p>
+                                            <p className="mb-0">{link.name}</p>
                                         </div>
                                     </Button>
                                 </Link>

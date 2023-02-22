@@ -66,3 +66,19 @@ export const getUnassignedDevs = async (values) => {
         console.log(err);
     }
 };
+
+export const assignDevs = async (values) => {
+    try {
+        const response = await axios.post(
+            "http://localhost:5000/projects/assign-members", {
+            token: values.token,
+            projectID: values.projectID,
+            newTeamMemberIDs: values.newTeamMemberIDs
+        });
+        if (response && response.data) {
+            return response.data;
+        } 
+    } catch (err) {
+        console.log(err);
+    }
+};

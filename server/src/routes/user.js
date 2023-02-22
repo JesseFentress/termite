@@ -4,7 +4,7 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const { generateToken, authenticateRequest } = require("../util/auth");
 
-router.get("/retrieve", authenticateRequest ,async (req, res) => {
+router.get("/retrieve", authenticateRequest, async (req, res) => {
     try {
         const { id } = req.query;
         const user = await pool.query(
@@ -16,13 +16,30 @@ router.get("/retrieve", authenticateRequest ,async (req, res) => {
                 firstName: user.rows[0].first_name, 
                 lastName: user.rows[0].last_name, 
                 role: user.rows[0].role,
-                id: user.rows[0].id
-        });
+                id: user.rows[0].id,
+                email: user.rows[0].email
+            });
         }
     } catch (err) {
         console.log(err.message);
     }
 });
+
+router.put("/change-password", async (res, req) => {
+    try {
+        console.log(req.body)
+        const { id, password } = req.body;
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const response = await pool.query(
+            "UPDATE users SET passhash=$1 WHERE id=$2",
+            [hashedPassword, id]
+        )
+        res.json(response);
+    }
+    catch (err) {
+        console.log(err.message);
+    }
+})
 
 router.post("/signup/create", async (req, res) => {
     try {
@@ -76,7 +93,12 @@ router.post("/login/validate", async (req, res) => {
             res.json({ 
                 message: "Successful login", 
                 loggedIn: true,
-                user: validUser.rows[0],
+                user: {
+                    firstName: validUser.rows[0].first_name, 
+                    lastName: validUser.rows[0].last_name, 
+                    role: validUser.rows[0].role,
+                    id: validUser.rows[0].id
+                },
                 token: generateToken(validUser.rows[0].id)
             });
         }

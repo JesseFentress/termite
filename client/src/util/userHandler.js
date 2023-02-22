@@ -1,5 +1,5 @@
 import axios from "axios";
-import { setCookie, readCookie, removeCookie, useAuth } from "../auth/AuthContext";
+import { setCookie, setUserCookie, removeCookie } from "../auth/AuthContext";
 
 export const signupUser = async (values) => {
     try {
@@ -12,7 +12,6 @@ export const signupUser = async (values) => {
             role: "developer"
         });
         if (response && response.data.token) {
-            setCookie(response.data.token);
             return null;
         }
         else {

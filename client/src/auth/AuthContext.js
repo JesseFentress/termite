@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import Cookies from "js-cookie";
 
 
@@ -17,11 +17,23 @@ export const removeCookie = () => {
     Cookies.remove("token");
 };
 
+export const setUserCookie = (user) => {
+    Cookies.set("user", user, { expires: 1 });
+};
+
+const readUserCookie = () => {
+    const token = Cookies.get("user");
+    if (token) {
+        return token;
+    }
+};
+
 export const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children })  => {
     const [ token, setToken]  = useState(readCookie());
-    const [ user, setUser ] = useState();
+    const [ user, setUser ] = useState({});
+    const [ isLoading, setIsLoading ] = useState(true);
 
     return (
         <AuthContext.Provider value={{ token, setToken, user, setUser }}>

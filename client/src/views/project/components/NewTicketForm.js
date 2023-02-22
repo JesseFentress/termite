@@ -47,7 +47,7 @@ export const NewTicketForm = ({
             <form onSubmit={formik.handleSubmit}>
                 <div className="d-flex justify-content-between">
                     <div className="form-floating mb-3 col-4">
-                        <input type="text" className="form-control" id="title" placeholder="Ticket Title" value={formik.values.title} onChange={formik.handleChange}/>
+                        <input type="text" className="form-control" id="title" placeholder="Ticket Title" maxLength="25" value={formik.values.title} onChange={formik.handleChange}/>
                         <label htmlFor="title">Ticket Title</label>
                     </div>
                     <div className="form-floating">
@@ -72,7 +72,7 @@ export const NewTicketForm = ({
                     </div>
                 </div>
                 <div className="form-floating">
-                    <textarea className="form-control h-300" placeholder="Leave a comment here" id="description" style={{height: 125}} value={formik.values[1]} onChange={formik.handleChange}></textarea>
+                    <textarea className="form-control h-300" placeholder="Leave a comment here" id="description" maxLength="255" style={{height: 125}} value={formik.values[1]} onChange={formik.handleChange}></textarea>
                     <label htmlFor="description">Description</label>
                 </div>
                 <div>

@@ -2,33 +2,28 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../../auth/AuthContext";
 import { Overlay } from "../../components/Overlay";
-import { getProject, getTeam } from "../../util/projectHandler";
+import { getProject } from "../../util/projectHandler";
 import { getProjectTickets } from "../../util/ticketHandler";
 import { ProjectInfoPanel } from "./components/ProjectInfoPanel";
 import { TeamPanel } from "./components/TeamPanel";
+import { TicketInfoPanel } from "./components/TicketInfoPanel";
 import { TicketPanel } from "./components/TicketsPanel";
 
 export const ProjectPage = ({
     token
 }) => {
     const [ project, setProject ] = useState();
-    const [ team, setTeam ] = useState();
     const [ tickets, setTickets ] = useState();
-    const { id } = useParams();
+    const [ activeTicket, setActiveTicket ] = useState(null);
     const [ popup, setPopup ] = useState(null);
+    const { id } = useParams();
     const { user } = useAuth();
     
     useEffect(() => {
         const project = getProject({token: token, projectID: id});
-        const teamMembers = getTeam({token: token, projectID: id});
         getTickets();
         project.then(value => {
             setProject(value);
-        }).catch(err => {
-            console.log(err);
-        });
-        teamMembers.then(value => {
-            setTeam(value);
         }).catch(err => {
             console.log(err);
         });
@@ -43,22 +38,14 @@ export const ProjectPage = ({
         });
     }
 
-   /* const handlePopup = (e) => {
-        if (e.target.innerHTML === "Create New Ticket") {
-                setPopup(<NewTicketPopup token={token} onPopupClose={handlePopup} onTicketRefresh={getTickets}/>);
-        }
-        else if (e.target.innerHTML === "Add Team Member") {
-                setPopup(<NewTeamMemberPopup token={token}  onPopupClose={handlePopup}/>)
-        }
-        else {
-            setPopup(null);
-        }
-    };*/
-
     const handlePopup = (popupComponent) => {
         setPopup(popupComponent);
     }
 
+    const handleTableClick = (clickedTicket) => {
+        setActiveTicket(clickedTicket);
+    }
+    
     return (
         <Overlay title={project ? project[0].title : null}>
             <div className="">
@@ -69,13 +56,18 @@ export const ProjectPage = ({
                 } 
                 <div className="row">
                     <ProjectInfoPanel project={project ? project[0] : null} tickets={tickets ? tickets : null}/>
-                    <TicketPanel onPanelButtonClick={handlePopup} token={token} id={id}/>
+                    <TicketPanel onPanelButtonClick={handlePopup} onTableClick={handleTableClick} token={token} id={id}/>
                 </div>
                 <div className="row">
                     { user.role !== "developer" ?
-                        <TeamPanel team={team ? team : null}/>
+                        <TeamPanel id={id}/>
                         :
-                        <TeamPanel team={team ? team : null} onPanelButtonClick={handlePopup} token={token}/>
+                        <TeamPanel id={id} onPanelButtonClick={handlePopup} />
+                    }
+                    { activeTicket ? 
+                        <TicketInfoPanel ticket={activeTicket} />
+                        :
+                        null
                     }
                 </div>
             </div>

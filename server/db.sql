@@ -15,11 +15,11 @@ CREATE TABLE project (
 );
 
 CREATE TABLE project_members (
-  id SERIAL PRIMARY KEY,
   project_id INT NOT NULL,
   member_id INT NOT NULL,
   FOREIGN KEY (project_id) REFERENCES project(id),
-  FOREIGN KEY (member_id) REFERENCES users(id)
+  FOREIGN KEY (member_id) REFERENCES users(id),
+  PRIMARY KEY (project_id, member_id)
 );
 
 CREATE TABLE ticket (
