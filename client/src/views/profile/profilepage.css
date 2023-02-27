@@ -1,65 +1,64 @@
 .profileImageContainer {
-    height: 275px;
-    width: 275px;
-    border-radius: 50%;
-    background-color: white;
-    transform: translateY(-20%);
+  height: 275px;
+  width: 275px;
+  border-radius: 50%;
+  background-color: white;
+  transform: translateY(-20%);
 }
 
 .profileImageContainer #userProfileImage {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 .uploadImage:hover {
-    cursor: pointer;
-    transform: scale(1.25);
+  cursor: pointer;
+  transform: scale(1.25);
 }
 
 .hover-icon {
-    transition: all .25s ease;
+  transition: all 0.25s ease;
 }
 
 .hover-icon:hover {
-    cursor: pointer;
-    transform: scale(1.25);
+  cursor: pointer;
+  transform: scale(1.25);
 }
 
 .uploadImage {
-    height: 40px;
-    width: 40px;
-    background-color: #f2f2f2;
-    position: absolute;
-    top: 220px;
-    left: 200px;
-    border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  background-color: #f2f2f2;
+  position: absolute;
+  top: 220px;
+  left: 200px;
+  border-radius: 50%;
 }
 
 .profImage {
-    height: calc(275px - (.2 * 275px));
+  height: calc(275px - (0.2 * 275px));
 }
 
 .info {
-    height: 8vh;
-    width: 30%;
-    border-radius: .5rem;
-    padding: .5em;
-
+  height: 8vh;
+  width: 30%;
+  border-radius: 0.5rem;
+  padding: 0.5em;
 }
 
 .infoLabel {
-    font-weight: 400;
-    font-size: 150%;
+  font-weight: 400;
+  font-size: 150%;
 }
 
 .profileInfoText {
-    font-size: 150%;
-    user-select: none;
-    outline: none;
-    border: none;
-    background: transparent;
-    letter-spacing: 0.1em;
+  font-size: 150%;
+  user-select: none;
+  outline: none;
+  border: none;
+  background: transparent;
+  letter-spacing: 0.1em;
 }
 
 .profileInfoText:focus {
-    outline: none;
+  outline: none;
 }

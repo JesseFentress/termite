@@ -9,7 +9,6 @@ const projectRouter = require("./src/routes/projects");
 const { authenticateRequest } = require("./src/util/auth");
 const e = require("express");
 
-
 const port = process.env.SERVER_PORT;
 const host = process.env.SERVER_HOST;
 
@@ -20,7 +19,6 @@ app.use("/tickets", authenticateRequest, ticketRouter);
 app.use("/users", userRouter);
 app.use("/projects", authenticateRequest, projectRouter);
 
-
 app.listen(port, host, () => {
-    console.log("Server is running on port 5000")
+  console.log("Server is running on port 5000");
 });

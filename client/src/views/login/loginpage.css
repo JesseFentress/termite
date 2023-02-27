@@ -1,52 +1,52 @@
 .container-login {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 
 .container-form {
-    width: 100%;
-    padding-right: var(--bs-gutter-x,.75rem);
-    padding-left: var(--bs-gutter-x,.75rem);
-    margin-right: auto;
-    margin-left: auto;
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .link {
-    text-align: center;
-    font-size: 80%;
+  text-align: center;
+  font-size: 80%;
 }
 
 @media (min-width: 576px) {
-    .container-form {
-        max-width: 180px;
-    }
+  .container-form {
+    max-width: 180px;
+  }
 }
 
 @media (min-width: 768px) {
-    .container-form {
-        max-width: 220px;
-    }
+  .container-form {
+    max-width: 220px;
+  }
 }
 
 @media (min-width: 992px) {
-    .container-form {
-        max-width: 280px;
-    }
+  .container-form {
+    max-width: 280px;
+  }
 }
 
 @media (min-width: 1200px) {
-    .container-form {
-        max-width: 300px;
-    }
+  .container-form {
+    max-width: 300px;
+  }
 }
 
 @media (min-width: 1400px) {
-    .container-form {
-        max-width: 320px;
-    }
+  .container-form {
+    max-width: 320px;
+  }
 }

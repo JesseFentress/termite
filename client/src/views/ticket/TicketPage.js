@@ -4,22 +4,15 @@ import { Overlay } from "../../components/Overlay";
 import { getProject } from "../../util/projectHandler";
 import { ProjectInfoPanel } from "./components/ProjectInfoPanel";
 
+export const TicketPage = ({ token }) => {
+  const [ticket, setTicket] = useState();
+  const { id } = useParams();
 
-export const TicketPage = ({
-    token
-}) => {
-    const [ ticket, setTicket ] = useState();
-    const { id } = useParams();
-    
-    useEffect(() => {
-    
-    }, []);
+  useEffect(() => {}, []);
 
-    return (
-        <Overlay title={project ? project[0].name : null}>
-            <div className="d-flex">
-
-            </div>
-        </Overlay>
-    );
+  return (
+    <Overlay title={project ? project[0].name : null}>
+      <div className="d-flex"></div>
+    </Overlay>
+  );
 };

@@ -1,51 +1,65 @@
-import './App.css';
+import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { useAuth } from './auth/AuthContext';
-import HomePage from './views/home/HomePage';
-import LoginPage from './views/login/LoginPage';
-import SignupPage from './views/signup/SignupPage';
-import DashboardPage from './views/dashboard/DashboardPage';
-import { ProtectedLoggedInRoute, ProtectedLoggedOutRoute } from './components/ProtectedRoute';
-import { getUser } from './util/userHandler';
-import { useEffect } from 'react';
-import { ProjectPage } from './views/project/ProjectPage';
-import { ProfilePage } from './views/profile/ProfilePage';
+import { useAuth } from "./auth/AuthContext";
+import HomePage from "./views/home/HomePage";
+import LoginPage from "./views/login/LoginPage";
+import SignupPage from "./views/signup/SignupPage";
+import DashboardPage from "./views/dashboard/DashboardPage";
+import {
+  ProtectedLoggedInRoute,
+  ProtectedLoggedOutRoute,
+} from "./components/ProtectedRoute";
+import { getUser } from "./util/userHandler";
+import { useEffect } from "react";
+import { ProjectPage } from "./views/project/ProjectPage";
+import { ProfilePage } from "./views/profile/ProfilePage";
 
 function App() {
   const { token, setUser } = useAuth();
 
   useEffect(() => {
-    const myUser = getUser({token: token});
-    myUser.then(value => {
+    const myUser = getUser({ token: token });
+    myUser
+      .then((value) => {
         setUser(value);
-      }).catch(err => {
-        console.log(err)
+      })
+      .catch((err) => {
+        console.log(err);
       });
-  }, [])
+  }, []);
 
   return (
     <Router>
       <Switch>
         <Route exact path="/">
-          <HomePage/>
+          <HomePage />
         </Route>
         <Route exact path="/dashboard">
-          <ProtectedLoggedOutRoute route={<DashboardPage/>} alternateRoute="/login"/>
+          <ProtectedLoggedOutRoute
+            route={<DashboardPage />}
+            alternateRoute="/login"
+          />
         </Route>
         <Route exact path="/login">
-          <ProtectedLoggedInRoute route={<LoginPage/>} alternateRoute="/dashboard"/>
+          <ProtectedLoggedInRoute
+            route={<LoginPage />}
+            alternateRoute="/dashboard"
+          />
         </Route>
         <Route exact path="/signup">
-          <ProtectedLoggedInRoute route={<SignupPage/>} alternateRoute="/dashboard"/>
+          <ProtectedLoggedInRoute
+            route={<SignupPage />}
+            alternateRoute="/dashboard"
+          />
         </Route>
         <Route exact path="/project/:id">
-          <ProjectPage token={token}/>
+          <ProjectPage token={token} />
         </Route>
         <Route exact path="/ticket/:id">
-          <SignupPage/>
+          <SignupPage />
         </Route>
         <Route exact path="/profile/:id">
-          <ProfilePage/>
+          <ProfilePage />
         </Route>
       </Switch>
     </Router>

@@ -1,12 +1,12 @@
 .popup-box {
-    position: fixed;
-    background: #00000050;
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    z-index: 1;
-  }
+  position: fixed;
+  background: #00000050;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
 
 .box {
   position: relative;
@@ -28,8 +28,8 @@
 }
 
 #datePickerLabel {
-  opacity: .65;
-  transform: scale(.85) translateY(-0.5rem) translateX(0.15rem);
+  opacity: 0.65;
+  transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
 }
 
 .newTeamList {
@@ -41,15 +41,15 @@
 }
 
 * {
-  padding:0;
-  margin:0
+  padding: 0;
+  margin: 0;
 }
 
 .wrapper {
   height: auto;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .checkmark__circle {
@@ -59,7 +59,7 @@
   stroke-miterlimit: 10;
   stroke: var(--termite);
   fill: none;
-  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
 }
 
 .checkmark {
@@ -72,40 +72,42 @@
   stroke-miterlimit: 10;
   margin: 10% auto;
   box-shadow: inset 0px 0px 0px var(--termite);
-  animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both
+  animation: fill 0.4s ease-in-out 0.4s forwards,
+    scale 0.3s ease-in-out 0.9s both;
 }
 
 .checkmark__check {
   transform-origin: 50% 50%;
   stroke-dasharray: 48;
   stroke-dashoffset: 48;
-  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
 }
 
 @keyframes stroke {
   100% {
-    stroke-dashoffset: 0 
+    stroke-dashoffset: 0;
   }
 }
 
 @keyframes scale {
-  0%, 100% {
-    transform: none
+  0%,
+  100% {
+    transform: none;
   }
   50% {
-    transform: scale3d(1.1, 1.1, 1)
+    transform: scale3d(1.1, 1.1, 1);
   }
 }
 
 @keyframes fill {
   100% {
-    box-shadow: inset 0px 0px 0px 100px var(--termite)
+    box-shadow: inset 0px 0px 0px 100px var(--termite);
   }
 }
 
 .ticket_desc {
   flex: auto;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 .capitalize {
@@ -115,4 +117,3 @@
 .successfulTicket {
   font-size: xx-large;
 }
-
